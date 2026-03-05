@@ -56,6 +56,8 @@ Before designing anything, study what the best products in the world do for this
 - **Search for real user voices.** Reddit threads, forum posts, Twitter complaints, support tickets, app reviews. What are actual people saying about this problem? This is free user research. Use it.
 - **What can we borrow, improve, or do differently?** Synthesize: "We're borrowing X from Linear because it solves the core problem well. We're improving Y because their approach doesn't work for our use case. We're doing Z differently because our users need something they don't offer."
 
+**If no direct competitor exists** (internal tools, novel features), study the closest adjacent product or the product category that handles a similar job. For internal tools, study how the best teams solve this problem manually. There's always something to learn from, even if it's not a direct competitor.
+
 The goal: build on insight, not on your training data's most common pattern.
 
 ### Step 2: First Principles Check
