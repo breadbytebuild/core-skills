@@ -4,8 +4,8 @@ Skills for building great software, organized by where you are in the product li
 
 ## Phase 1: Define (before you build)
 
-**Product Specs** → `skills/product-building/product-specs.md`
-Load when: writing a PRD, defining acceptance criteria, scoping a feature, or creating a task spec that another person or agent needs to execute from. *Coming soon.*
+**Product Planning** → `skills/product-building/product-planning.md`
+Load when: building a new feature, significantly changing an existing one, or any task that will take more than an hour. Produces a plan document through competitive research, first principles, user empathy, journey mapping, edge cases, and pre-mortems. Load this before writing any code.
 
 **Stakeholder Communication** → `skills/product-building/stakeholder-comms.md`
 Load when: updating PMs, designers, or founders on progress, presenting tradeoffs, or requesting a decision on scope or direction. *Coming soon.*
@@ -44,7 +44,9 @@ Load when: writing user-facing text (error messages, button labels, onboarding c
 
 ## Quick Decision Guide
 
-- **"Write a spec for this feature"** → Product Specs
+- **"Write a spec for this feature"** → Product Planning
+- **"Plan this feature"** → Product Planning
+- **"Build [anything complex]"** → Product Planning first, then the relevant build skills
 - **"Design this screen"** → UI/UX Design Sense
 - **"Build this component"** → Frontend Craft + Code Quality
 - **"This is broken"** → Debugging
