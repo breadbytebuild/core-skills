@@ -171,6 +171,14 @@ Shot 4 (2s): Close-up on user's face. Slight smile, nod.
 
 **Transition planning:** Decide how shots connect BEFORE generating. Match the ending composition of shot 1 to the starting composition of shot 2. Use the last frame of one generation as the start frame reference for the next.
 
+**Character consistency across shots:** The hardest problem in multi-shot video. The same person should look the same in shot 1 and shot 4. How to handle it:
+
+1. **Generate one strong character reference image first.** Use Image Generation to create a detailed, clear image of the character. This is your "casting photo."
+2. **Use the reference image as input for every shot** that includes this character. On models that support reference images (Kling, Seedance), provide it every time.
+3. **Lock the character description.** Write one paragraph describing the character (clothing, hair, build, distinguishing features) and include it verbatim in every shot prompt.
+4. **Use image-to-video with the character in the start frame.** Generate each start frame with the same character reference, then animate. This is more reliable than text-to-video for consistency.
+5. **Avoid dramatic angle changes between shots.** A front-facing shot followed by a profile shot is where consistency breaks. Keep angles within 45 degrees of each other when possible.
+
 ## Video Types: How Prompting Changes
 
 **Product demos:** Shot-list approach. Wide establishing shot of the product, then close-ups of key interactions. Keep camera movement minimal. Let the product be the star. Use screen recordings where possible and generated video only for concept/pre-build visualization.
@@ -182,6 +190,14 @@ Shot 4 (2s): Close-up on user's face. Slight smile, nod.
 **Ad creatives:** Structure as: hook (1-2s), value (3-5s), CTA (2-3s). The hook shot is the most important. Bold composition, unexpected motion, or a visually arresting moment. The value shots show the product or benefit. The CTA shot should be clean with clear text (use Nano Bana Pro to generate the CTA frame, then animate subtly).
 
 **Animated illustrations:** Start with a strong illustration (Image Generation skill), then add minimal, purposeful motion. A character blinking, particles floating, a subtle parallax shift. Less is more. Over-animating a beautiful illustration makes it feel cheap.
+
+**UGC / authentic-looking content:** The goal is "shot on iPhone" energy. Use handheld camera movement. Natural, slightly uneven lighting. Slightly off-center framing. No dramatic color grading. The subject should feel candid, not posed. Avoid words like "cinematic," "professional," or "polished" in your prompt. Instead: "casual handheld footage," "natural daylight," "candid moment." The model's default is too clean for UGC. You have to deliberately rough it up, same as with image generation.
+
+**Explainer / voiceover-driven videos:** The visuals support a narrative, not the other way around. Each shot illustrates a concept being explained. Pacing is slower (3-5s per shot) to let the voiceover breathe. Camera movement should be gentle and consistent (slow dollies, subtle pans). Transitions between concepts use clear visual shifts. Generate the visuals first, then match voiceover pacing. If the model supports audio, specify "no dialogue, ambient only" so the voiceover has space.
+
+**Talking head / interview style:** Character consistency is critical here. Generate a strong reference frame of the character first, then use image-to-video for every shot. Keep camera movement minimal (static or very slow dolly). Specify facial expressions and gestures explicitly: "the person nods, then gestures with their right hand while speaking." For models with dialogue support (Kling 3.0), include the actual dialogue text. Match lip movement to speech by specifying language and pacing.
+
+**Cinematic brand films:** Longer, story-driven pieces. Plan a full storyboard (8-12 shots). Use dramatic camera work: crane shots, slow reveals, wide-to-close-up sequences. Color grading language matters here: "teal and orange color grade," "desaturated with warm highlights," "high contrast noir lighting." Sound design is essential. Every shot should have an emotional arc, not just visual content.
 
 ## The Video Iteration Loop
 
@@ -202,6 +218,30 @@ Adapted from the image iteration loop, but with video-specific evaluation criter
 
 **Know when to stop.** Video iteration burns more time and credits than image iteration. If the shot communicates what it needs to, ship it. Perfect is the enemy of shipped.
 
+## Audio Direction
+
+Three of the six major video models (Kling 3.0, Seedance 2.0, Veo 3.1) generate native audio. Audio transforms a visual clip into an experience. Don't ignore it.
+
+**When to include audio direction:**
+- Always, if the model supports it. Even "quiet ambient room tone" is better than leaving audio unspecified (which produces random or silent output).
+- Especially for: social content (music drives engagement), product demos (UI sounds add polish), ad creatives (audio is half the ad), and any content with dialogue.
+
+**What to specify:**
+
+| Layer | Examples | Notes |
+|-------|----------|-------|
+| **Ambient / room tone** | "Quiet coffee shop background," "outdoor park with birds," "silent studio" | Sets the space. Even silence should be specified. |
+| **Sound effects** | "Keyboard clicks," "notification chime," "door opening," "footsteps on marble" | Grounds the action in reality. Specific > generic. |
+| **Music mood** | "Soft ambient electronic," "upbeat indie pop," "minimal piano," "no music" | Don't describe full songs. Describe the feeling. |
+| **Dialogue** | "The person says: 'Welcome to the future of email.'" | Include exact words, specify language, and note emotional tone. |
+
+**What NOT to do:**
+- Don't specify copyrighted songs ("play Blinding Lights"). Describe the mood instead.
+- Don't over-layer. One ambient layer + one effect or music track is usually enough. Three layers of audio becomes noise.
+- Don't forget to say "no music" when you want clean ambient sound. The default on many models is to add a generic soundtrack.
+
+**Audio changes creative direction.** The same visual clip with "soft piano" feels reflective. With "driving electronic beats" it feels energetic. With "silence, just room tone" it feels intimate and documentary. Decide the audio mood before generating, not after, because it affects how you direct the visuals too.
+
 ## What Makes Video Striking
 
 **Camera movement as emotion.** A slow dolly-in creates intimacy. A fast tracking shot creates energy. A static shot creates calm observation. The camera's relationship to the subject IS the storytelling. Don't default to "slow pan" on everything.
@@ -212,7 +252,11 @@ Adapted from the image iteration loop, but with video-specific evaluation criter
 
 **Purposeful stillness.** The most striking moment in a video is sometimes when everything stops. A held frame after action, a static shot after a sequence of movement. Stillness creates weight. Don't fill every second with motion.
 
-**Sound design cues.** For models that support audio (Kling 3.0, Seedance 2.0, Veo 3.1), specify ambient sound, effects, and music mood. "Soft ambient electronic music, the click of a keyboard, a notification chime" turns a visual into an experience. Audio-native models produce dramatically more immersive output when given sound direction.
+**Sound design cues.** For models that support audio, specify ambient sound, effects, and music mood. "Soft ambient electronic music, the click of a keyboard, a notification chime" turns a visual into an experience. See the Audio Direction section for detailed guidance.
+
+**The mute test.** Watch your video on mute. Does the camera tell a story by itself? If the movement is generic (slow pan on everything, no variation), the video is generic. Now watch with sound. Does the audio add a layer, or is it just there? If you removed the audio and lost nothing, the audio direction was too weak. Both layers should carry weight independently and amplify each other together.
+
+**The screenshot test.** Pause at any random frame. Is it a good image? The best videos are built from frames that could each stand alone. If a random pause produces a blurry, mid-motion mess, the composition or pacing needs work.
 
 ## Anti-Patterns
 
