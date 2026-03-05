@@ -259,6 +259,18 @@ Skills for building great software, organized by product lifecycle phase.
 
 See [Product Building ROUTING.md](skills/product-building/ROUTING.md) for the full taxonomy and trigger conditions.
 
+### Model Craft (1 skill live, 2 coming soon)
+
+Skills for getting the best output from AI models.
+
+| Skill | What It Fixes | Core Tool |
+|-------|--------------|-----------|
+| [Prompting Fundamentals](skills/model-craft/prompting-fundamentals.md) | One-shot prompting, no iteration, same approach for every model | Iteration Loop, Debugging Stack, Model Selection |
+| Image Generation | Generic image prompts, no style consistency | *Coming soon* |
+| Video Generation | Unstructured video prompts, no shot/pacing awareness | *Coming soon* |
+
+See [Model Craft ROUTING.md](skills/model-craft/ROUTING.md) for trigger conditions.
+
 ## Skill Format
 
 Each skill is a Markdown file with YAML frontmatter:
