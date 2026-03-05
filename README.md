@@ -169,6 +169,7 @@ The foundation layer. These skills change how an agent approaches *all* problems
 | [Structured Brainstorming](skills/meta-cognitive/structured-brainstorming.md) | Artificial Hivemind — diverse ideas, not just more ideas | Lens Toolkit (SCAMPER, Constraint Injection, Inversion, etc.) |
 | [Critical Evaluation](skills/meta-cognitive/critical-evaluation.md) | Sycophancy, confirmation bias, plausibility-over-truth | Adversarial Toolkit (Steel Man, Pre-Mortem, Evidence Audit) |
 | [Prioritization Frameworks](skills/meta-cognitive/prioritization-frameworks.md) | Position bias, "everything is important" paralysis | Ruthless Cut, ICE Scoring, Eisenhower Matrix |
+| [Skill Authoring](skills/meta-cognitive/skill-authoring.md) | Bad skill descriptions, wrong specificity level, soul file neglect | Description formula, specificity calibration, soul file vs. skill test |
 
 ### How They Compose
 
@@ -179,6 +180,7 @@ Systems Thinking    →  maps how everything connects
 Brainstorming       →  generates diverse solution options
 Critical Evaluation →  stress-tests each option for soundness
 Prioritization      →  ranks what matters most and kills the rest
+Skill Authoring     →  improves the agent's own tools over time
 ```
 
 Load all six for a full reasoning stack, or pick the ones that match your task. See [ROUTING.md](skills/meta-cognitive/ROUTING.md) for the quick decision guide.

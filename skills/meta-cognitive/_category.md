@@ -15,6 +15,7 @@ The foundation layer. These skills don't solve specific problems — they change
 - **Structured Brainstorming** — Force genuine idea diversity through structured lenses and constraints
 - **Critical Evaluation** — Stress-test ideas against evidence, counteracting sycophancy and confirmation bias
 - **Prioritization Frameworks** — Decide what matters most and kill everything else, counteracting "everything is important" paralysis
+- **Skill Authoring** — Build effective skills, manage the soul file, and diagnose why behavior changes aren't sticking
 
 ## How They Work Together
 

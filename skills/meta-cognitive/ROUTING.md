@@ -22,6 +22,9 @@ Load when: evaluating a plan before committing, choosing between options, someon
 **Prioritization Frameworks** → `skills/meta-cognitive/prioritization-frameworks.md`
 Load when: you have more options than you can pursue, everything feels equally important, you're about to say yes without considering what it displaces, or you need to decide what to do first (and what to kill).
 
+**Skill Authoring** → `skills/meta-cognitive/skill-authoring.md`
+Load when: creating a new skill, updating a skill that isn't working, deciding whether something belongs in the soul file or a skill, diagnosing why a behavior change isn't sticking, or doing your monthly soul file review.
+
 ## Composition Flow
 
 For complex problems, use this sequence:
@@ -45,3 +48,5 @@ You don't always need all six. But for high-stakes, ambiguous problems, the full
 - **"Is this plan good?"** → Critical Evaluation
 - **"What do we do first?"** → Prioritization Frameworks
 - **"This problem is complex and high-stakes"** → Load all six, follow the composition flow
+- **"I need to create/update a skill"** → Skill Authoring
+- **"Why isn't this behavior sticking?"** → Skill Authoring (diagnosis section)
