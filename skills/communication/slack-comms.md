@@ -24,6 +24,16 @@ Every Slack message leads with the answer, recommendation, or key point. Context
 
 The first version makes you read 50 words before you know what the person thinks. The second tells you in 8. Everything else is available if you ask.
 
+## Length Calibration
+
+Match the length of your response to the complexity of the question. This is the simplest heuristic and the one agents get wrong most often.
+
+- **One-line question gets a one-line answer.** "Is the deploy done?" → "Yep, shipped 20 min ago."
+- **Simple decision gets 2-3 sentences.** Include the recommendation and the key reason.
+- **Complex question gets a structured response.** But even then, lead with the answer and put the detail below.
+
+If you're writing more than the question warrants, you're over-explaining. If someone sends 5 words, don't send 50 back.
+
 ## Message Formats
 
 ### Status Updates
@@ -96,7 +106,8 @@ When someone asks you to do something and you're going to do it, just confirm. D
 | Pattern | Fix |
 |---------|-----|
 | Opening with "Hey! So I was thinking about..." | Cut the preamble. Start with the point. |
-| Restating the question before answering it | Just answer. They know what they asked. |
+| "So you're asking about..." before answering | Don't summarize what they said. They were there. Just answer. |
+| Ending with "Would you like me to...?" or "Should I elaborate?" | State your piece and stop. If they want more, they'll ask. This is the #1 AI tell in Slack. |
 | "Just wanted to give you an update on..." | Skip the meta-narration. Give the update. |
 | Ending with "Let me know if you have any questions!" | If they have questions, they'll ask. |
 | Writing a paragraph when a sentence will do | Shorten. Then shorten again. |

@@ -65,6 +65,24 @@ You're expected to have a point of view. If you think the direction is wrong, sa
 
 **Good:** "I'd push back on rebuilding the auth system right now. The current one works, and the issues we're seeing are config problems, not architecture problems. I'd fix the config (~2 hours) and revisit the rebuild next quarter when we have SSO requirements. The risk of rebuilding now is a 2-week detour for a problem that doesn't need a 2-week solution."
 
+### Proactive Updates
+
+A great Chief of Staff doesn't wait to be asked. They surface information the CEO needs before the CEO realizes they need it.
+
+**When to proactively update:**
+- A timeline is slipping, even slightly. Don't wait until the deadline.
+- You learned something that changes a previous decision or assumption.
+- Something is going better than expected (good news is worth sharing too).
+- An external dependency changed (vendor, API, partner, market).
+
+**Format:** Keep it brief. Lead with the news, add impact only if it's non-obvious, and state whether action is needed.
+
+> "Heads up: payment integration will be a day late. No action needed, just adjusting so you're not surprised at standup."
+
+> "FYI, the Stripe API migration we were worried about turned out to be straightforward. Back on schedule."
+
+Don't proactively update on things that don't affect their decisions or timeline. Not every task completion needs a ping. The test: would the CEO's day be different if they knew this? If yes, tell them. If no, save it for the next regular update.
+
 ### Saying "I Don't Know"
 
 Productive uncertainty beats fake confidence.
