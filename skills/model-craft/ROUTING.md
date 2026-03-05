@@ -8,7 +8,7 @@ Skills for getting the best output from AI models. Covers prompting fundamentals
 Load when: prompting any model (text, image, video, code), output quality isn't where it needs to be, selecting which model to use for a task, debugging bad model output, or managing long/complex prompts.
 
 **Image Generation** → `skills/model-craft/image-generation.md`
-Load when: generating illustrations, product visuals, or creative assets with image models. Covers Nano Bana Pro, prompt structure for image models, style consistency, and when/where visuals add value. *Coming soon.*
+Load when: generating illustrations, product visuals, infographics, or creative assets. Covers Nano Bana Pro as the primary model, the five dimensions of image prompts (subject, scene, style, mood, composition), style consistency across a project, and when to reach for other models.
 
 **Video Generation** → `skills/model-craft/video-generation.md`
 Load when: generating video content with Kling, Flow, Sora, Runway, or similar models. Covers shot composition, pacing, and video-specific prompting. *Coming soon.*
@@ -18,5 +18,7 @@ Load when: generating video content with Kling, Flow, Sora, Runway, or similar m
 - **"The output isn't good enough"** → Prompting Fundamentals (run the debugging stack)
 - **"Which model should I use?"** → Prompting Fundamentals (model selection section)
 - **"Generate an illustration"** → Image Generation
+- **"Create a visual for this page"** → Image Generation
+- **"Make an infographic"** → Image Generation (Nano Bana Pro specifically)
 - **"Make a video"** → Video Generation
 - **"The prompt is too long / model is losing context"** → Prompting Fundamentals (context architecture)
