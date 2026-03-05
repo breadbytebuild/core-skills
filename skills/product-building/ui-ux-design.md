@@ -145,6 +145,39 @@ Pick a cohesive palette and commit to it. For most software interfaces:
 - **Limit color variety per view.** If you're using 5+ distinct colors (beyond neutrals and semantic colors), the interface will feel noisy. 2-3 intentional colors creates cohesion.
 - **Muted metadata is intentional.** Timestamps, secondary labels, and helper text should be lower contrast than body text. This isn't an accessibility failure, it's hierarchy. Use gray-500 or equivalent for metadata while keeping body text at full contrast.
 
+## Dark Mode
+
+### When to Use It
+
+Dark mode isn't always the right choice. Using the wrong mode is as bad as implementing a mode poorly.
+
+**Use dark mode when:**
+- The product is used for long sessions where eye strain matters (dev tools, dashboards, creative apps)
+- The content is primarily visual (media, design, video) and dark backgrounds make it pop
+- The existing product already supports it and users expect it
+- The user explicitly chooses it via system preferences or a toggle
+
+**Don't default to dark mode when:**
+- The product is content-heavy with lots of reading (docs, articles, email). Light mode is easier to read for most people in most lighting conditions.
+- The brand identity is clearly light-themed. Don't force dark mode because it looks "techy."
+- You're building a quick feature and dark mode would double the design work without clear user demand. Ship light first, add dark when it matters.
+
+### How to Do It Right
+
+Dark mode is not inverted light mode. It's a separate design that shares structure but differs in surface treatment.
+
+**Surface brightness:** Don't use pure black (#000) as a background. It creates too much contrast and feels harsh. Use dark grays (#0a0a0a to #1a1a1a). Layer surfaces by increasing brightness slightly: background (#111), card (#1a1a1a), elevated card (#222). This creates depth without relying on shadows.
+
+**Shadows don't work in dark mode.** A dark shadow on a dark background is invisible. Use subtle glows (very low opacity light shadows), brighter borders (opacity 10-15% white), or surface brightness differences to create separation instead.
+
+**Borders need more opacity.** A border that's `border-color: rgba(0,0,0,0.1)` in light mode is invisible in dark mode. Use `rgba(255,255,255,0.1)` or equivalent. Borders often need to be more visible in dark mode because you can't rely on shadows for depth cues.
+
+**Text contrast adjusts:** Don't use pure white (#fff) for body text on dark backgrounds. It's too harsh. Use slightly muted white (#e5e5e5 or similar) for body text, brighter white for headings. This creates the same hierarchy as light mode but with less eye strain.
+
+**Colors shift:** Your brand primary might need to lighten in dark mode to maintain contrast against dark surfaces. Semantic colors (red for error, green for success) often need to shift to their lighter/more saturated variants. Test every color against the dark background.
+
+**Test it separately.** Don't assume that if it looks good in light mode, it'll look good in dark mode with color swaps. Review every screen in both modes.
+
 ## Layout Principles
 
 ### Information Architecture First
@@ -222,10 +255,14 @@ This is the most overlooked state and one of the most important. An empty state 
 **Good:** What specifically went wrong (in human terms), what the user can do about it, and a recovery action. "We couldn't load your campaigns. This usually means a connection issue. Try refreshing, or contact support if it keeps happening." with a Refresh button.
 
 ### Sparse State
-How does the layout look with 1-2 items instead of 10? Does a single card in a grid look lonely and broken? Does a table with one row look like it's malfunctioning? Design for the minimum, not just the ideal.
+How does the layout look with 1-2 items instead of 10? A 3-column card grid with one card in the top-left corner looks broken. A table with one row looks like an error.
+
+**Fixes:** Center 1-2 cards instead of left-aligning them. Switch to a simpler layout (list instead of grid) when count is low. Add a subtle illustration or helper text to fill the visual gap without faking data. The sparse state should feel intentional, not like something went wrong.
 
 ### Dense State
-How does the layout handle 100 items instead of 10? Does it paginate? Virtualize? Scroll infinitely? Does the layout break with long text or many items? Test the extremes.
+How does the layout handle 100 items instead of 10? Does it paginate? Virtualize? Scroll infinitely?
+
+**Fixes:** Virtualize lists over 50 items (don't render 500 DOM nodes). Add pagination or infinite scroll with a clear indicator. Test with maximum-length text strings, not just "Item 1." Test with 3-line descriptions, not just 1-line. If the layout breaks at density, it was never actually designed.
 
 ## Motion and Timing
 
