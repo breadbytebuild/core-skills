@@ -129,21 +129,19 @@ adapt to you.
    filler, padding, or restating something already said.
 ```
 
-### Step 3: Add the Skill Routing section to your soul file
+### Step 3: Add the Core Skills section to your soul file
 
-Copy this block into your soul file **after** the Communication Voice section. This tells the agent that skills exist and where to find them.
+Copy this block into your soul file **after** the Communication Voice section. This tells the agent that skills exist and how to find them through the master router.
 
 **Update the file paths** to match where you cloned the repo. If it's at `~/core-skills/`, change `core-skills/` to `~/core-skills/`. If your agent reads from GitHub URLs, use the raw file URLs instead.
 
 ```markdown
-## Core Skills: Thinking & Communication
+## Core Skills
 
-You have access to skills that make you better at reasoning and
-communicating. These are stored as files. Load them on demand.
+You have access to skills that make you better at thinking, communicating,
+and building. These are stored as files. Load them on demand.
 
-**These skills are for ALL of life, not just work.** The meta-cognitive
-and communication skills apply to personal conversations, relationships,
-and decisions just as much as professional ones. Better thinking and
+**These skills are for ALL of life, not just work.** Better thinking and
 clearer communication matter everywhere. Don't treat these as work tools
 you turn off outside business hours.
 
@@ -151,17 +149,15 @@ you turn off outside business hours.
 loading a skill, load it. The cost of overthinking a casual message is
 low. The cost of under-thinking an important one is high.
 
-**Routing indexes:**
-- Thinking skills: Read `core-skills/skills/meta-cognitive/ROUTING.md` for
-  problem-solving, decision-making, creative work, or strategic thinking.
-- Communication skills: Read `core-skills/skills/communication/ROUTING.md`
-  for Slack messages, upward communication, or difficult conversations.
+**Skill routing:** When you need a skill, read `core-skills/ROUTING.md`.
+It maps task types to skill categories (thinking, communication, product
+building), which map to individual skills. One file, all categories.
 
 **How to use skills:**
-1. Read the relevant ROUTING.md to determine which skill(s) match
-2. Load the skill file(s) it points you to
-3. Follow the process (phases, gates, techniques)
-4. For complex problems, load multiple skills and follow the composition flow
+1. Read `core-skills/ROUTING.md` to find the right category
+2. Read that category's routing index to find the right skill(s)
+3. Load the skill file(s) and follow the process
+4. For complex problems, load multiple skills across categories
 
 **Do NOT narrate your process.** These skills are your internal
 reasoning tools. Use them to think, then deliver clean answers. Do NOT say
@@ -191,15 +187,16 @@ The agent will read the routing indexes when it encounters matching situations, 
 
 ## How It Works
 
-The system uses **progressive disclosure** so skills don't bloat the context window:
+The system uses **hierarchical progressive disclosure** so skills don't bloat the context window:
 
 | Layer | What | Token Cost | When Loaded |
 |-------|------|-----------|-------------|
-| **Soul file** | Communication Voice + skill pointers | ~500 tokens | Every message |
-| **Routing indexes** | Trigger conditions for each skill | ~300 tokens | Start of matching tasks |
-| **Individual skills** | Full processes, techniques, examples | ~1-3K tokens each | Only when triggered |
+| **Soul file** | Communication Voice + master router pointer | ~500 tokens | Every message |
+| **Master router** | Category list with trigger conditions | ~50 tokens | Start of any task needing skills |
+| **Category router** | Individual skill triggers for that category | ~300 tokens | When category matches |
+| **Individual skill** | Full process, techniques, examples | ~1-3K tokens each | Only when triggered |
 
-The agent can access all 10 skills while only paying for the ones it's actively using.
+The agent navigates: soul file → master router → category router → skill. Three hops, but it only loads what it needs at each level. This scales to 100+ skills across unlimited categories without touching the soul file.
 
 ## Skills
 
@@ -242,6 +239,25 @@ The always-on voice is in the soul file. These skills handle specific situations
 | [Difficult Comms](skills/communication/difficult-comms.md) | Hedging bad news, avoiding conflict, fake agreement | Kind-not-nice principle, situation playbooks, softening test |
 
 See [Communication ROUTING.md](skills/communication/ROUTING.md) for trigger conditions.
+
+### Product Building (10 skills, coming soon)
+
+Skills for building great software, organized by product lifecycle phase.
+
+| Phase | Skill | What It Fixes |
+|-------|-------|--------------|
+| Define | Product Specs | Vague specs that can't be executed from |
+| Define | Stakeholder Comms | Over-reporting or under-reporting to leadership |
+| Design | UI/UX Design Sense | Functional but ugly interfaces, bad spacing/typography |
+| Design | Frontend Craft | Missing loading/error/empty states, no responsive design |
+| Build | Code Quality | Working code that's unmaintainable |
+| Build | Debugging | Guess-and-check instead of systematic tracing |
+| Ship | PR Writing | PRs with no context or pasted diffs |
+| Ship | Software Polish | Declaring "done" at functional, never polishing |
+| Maintain | Scaling & Architecture | Over-engineering early, under-engineering late |
+| Maintain | Copywriting | Developer-speak in user-facing copy |
+
+See [Product Building ROUTING.md](skills/product-building/ROUTING.md) for the full taxonomy and trigger conditions.
 
 ## Skill Format
 
