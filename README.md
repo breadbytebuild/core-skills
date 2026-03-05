@@ -150,8 +150,8 @@ loading a skill, load it. The cost of overthinking a casual message is
 low. The cost of under-thinking an important one is high.
 
 **Skill routing:** When you need a skill, read `core-skills/ROUTING.md`.
-It maps task types to skill categories (thinking, communication, product
-building), which map to individual skills. One file, all categories.
+It maps task types to skill categories, which map to individual skills.
+One file, all categories.
 
 **How to use skills:**
 1. Read `core-skills/ROUTING.md` to find the right category
@@ -240,22 +240,22 @@ The always-on voice is in the soul file. These skills handle specific situations
 
 See [Communication ROUTING.md](skills/communication/ROUTING.md) for trigger conditions.
 
-### Product Building (10 skills, coming soon)
+### Product Building (3 live, 7 coming soon)
 
 Skills for building great software, organized by product lifecycle phase.
 
 | Phase | Skill | What It Fixes |
 |-------|-------|--------------|
-| Define | Product Specs | Vague specs that can't be executed from |
-| Define | Stakeholder Comms | Over-reporting or under-reporting to leadership |
-| Design | UI/UX Design Sense | Functional but ugly interfaces, bad spacing/typography |
-| Design | Frontend Craft | Missing loading/error/empty states, no responsive design |
-| Build | Code Quality | Working code that's unmaintainable |
-| Build | Debugging | Guess-and-check instead of systematic tracing |
-| Ship | PR Writing | PRs with no context or pasted diffs |
-| Ship | Software Polish | Declaring "done" at functional, never polishing |
-| Maintain | Scaling & Architecture | Over-engineering early, under-engineering late |
-| Maintain | Copywriting | Developer-speak in user-facing copy |
+| Define | [Product Planning](skills/product-building/product-planning.md) | Skipping planning, vague specs, no competitive research or user empathy |
+| Define | Stakeholder Comms | Over-reporting or under-reporting to leadership. *Coming soon.* |
+| Design | [UI/UX Design Sense](skills/product-building/ui-ux-design.md) | Functional but ugly interfaces, bad spacing/typography, AI slop |
+| Design | Frontend Craft | Missing loading/error/empty states, no responsive design. *Coming soon.* |
+| Build | Code Quality | Working code that's unmaintainable. *Coming soon.* |
+| Build | Debugging | Guess-and-check instead of systematic tracing. *Coming soon.* |
+| Ship | PR Writing | PRs with no context or pasted diffs. *Coming soon.* |
+| Ship | [Software Polish](skills/product-building/software-polish.md) | Declaring "done" at functional, never self-reviewing before delivery |
+| Maintain | Scaling & Architecture | Over-engineering early, under-engineering late. *Coming soon.* |
+| Maintain | Copywriting | Developer-speak in user-facing copy. *Coming soon.* |
 
 See [Product Building ROUTING.md](skills/product-building/ROUTING.md) for the full taxonomy and trigger conditions.
 
@@ -284,7 +284,7 @@ description: What it does, when to use it, when NOT to use it.
 
 # Skill Name
 
-(skill content, typically 140-250 lines)
+(skill content, typically 140-400 lines)
 ```
 
 ## Contributing

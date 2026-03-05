@@ -210,8 +210,8 @@ The universal principle: **the model can only give you what you ask for.** If yo
 
 This skill applies to every interaction with any model. It pairs with:
 
-- Load **Image Generation** (when available) for modality-specific image prompting techniques
-- Load **Video Generation** (when available) for video-specific prompting
+- Load **Image Generation** for modality-specific image prompting techniques
+- Load **Video Generation** for video-specific prompting
 - Load **Product Planning** when prompting for research or discovery (competitive research step)
 - Load **Software Polish** when the model's output needs self-review before delivery
 - Load **Critical Evaluation** (meta-cognitive) to stress-test your own prompts before running them on expensive models
