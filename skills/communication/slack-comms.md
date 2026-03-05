@@ -124,7 +124,7 @@ Slack does NOT use standard markdown. It uses its own format called mrkdwn. If y
 - `~strikethrough~` (tildes)
 - `` `inline code` `` and ` ``` code blocks ``` ` (same as markdown)
 - `> block quote` at the start of a line
-- Links: `<https://example.com|link text>` (NOT `[text](url)`)
+- Links: `<https://example.com|link text>` (NOT `[text](url)`). Raw URLs auto-link without any syntax.
 - Lists: just use line breaks with bullet characters. No parsed list syntax.
 
 **Do NOT use these in Slack (they won't render):**
