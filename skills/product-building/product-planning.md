@@ -30,7 +30,21 @@ This skill produces a plan document before any code is written. It forces the im
 
 ## The Planning Process
 
-Six steps. Each one surfaces decisions that would otherwise be made implicitly (and often wrong) during coding.
+Seven steps, plus a Step 0 for vague or open-ended prompts. Each one surfaces decisions that would otherwise be made implicitly (and often wrong) during coding.
+
+### Step 0: Clarify the Problem (for vague or open-ended prompts)
+
+Skip this step if you already know what you're building. Use it when the prompt is broad ("go make money online"), ambiguous ("build a dashboard"), or leaves the problem space undefined.
+
+Before you can plan, you need to answer:
+- **What specific problem am I solving?** Not a category ("make money") but a concrete problem for a concrete person.
+- **For whom?** Name the user. If you can't, the prompt is too vague to plan.
+- **Why now? Why this?** What makes this the right problem to solve given the constraints?
+- **What does the smallest useful version look like?** Not the full vision. The version you could ship in days, not months.
+
+If you're building for a stakeholder, this is where you ask clarifying questions before planning. "You said 'build a dashboard.' What decisions would this dashboard help you make? What do you check most often?" Get the answers before planning, not during building.
+
+If you're building autonomously, use First Principles and competitive research to narrow from broad to specific. Don't plan the first idea that comes to mind. Generate 3-5 options, apply the painkiller-vs-vitamin test, and pick the strongest before running the full planning process.
 
 ### Step 1: Competitive Research
 
@@ -72,9 +86,11 @@ Now set competitors aside. What are the fundamental truths about this problem?
 
 **Use the Mom Test lens.** Don't plan based on what users would say they want ("I'd love a dashboard with..."). Plan based on what they actually do. Past behavior over future predictions. "When did you last check campaign analytics? What did you do? What was confusing?" This produces real signal.
 
-### Step 4: Define Scope and Edge Cases
+### Step 4: Define Scope, Appetite, and Edge Cases
 
-**What's in scope for v1?** List the specific features and behaviors. Be explicit.
+**Set the appetite first.** Before listing features, answer: how much is this problem worth? Not "how long will it take" (that's an estimate that grows). How much time and effort is it *worth*? A 1-week appetite produces a fundamentally different plan than a 6-week appetite. If the plan doesn't fit the appetite, cut scope, don't extend time.
+
+**What's in scope for v1?** List the specific features and behaviors. Be explicit. Everything must fit within the appetite.
 
 **What's explicitly out of scope and why?** This is as important as what's in. "We're not building bulk import in v1 because it affects <5% of users and adds 2 weeks. We'll revisit if users request it." Naming what you're cutting and why prevents scope creep and shows intentional trade-offs.
 
@@ -150,10 +166,27 @@ decisions and the reasoning behind each.]
 1. [Most likely failure mode] → [mitigation]
 2. [Second most likely] → [mitigation]
 
+## Build Order
+1. [What to build first — the riskiest or most uncertain piece]
+2. [What depends on #1]
+3. [What can be built in parallel]
+[De-risk the unknowns early. Build the thing you're least sure 
+about first so you learn fast, not last.]
+
 ## Success Criteria
 [Specific, measurable outcomes. Not "users like it" but "40% of 
 new users complete onboarding in the first session."]
 ```
+
+### Step 7: Validate the Plan
+
+The plan is written. Before building, validate it.
+
+**If you're building for a stakeholder (most common):** Share the plan and get explicit approval before writing code. "Here's what I'm planning to build. The scope, the edge cases, the build order. Anything off? Anything missing?" This takes 2 minutes to review and prevents hours of rework. Don't skip this step because you're eager to build.
+
+**If you're building autonomously:** Self-review the plan once. Read it through the lens of Critical Evaluation: steel-man an alternative approach you didn't choose. Run the pre-mortem on your own plan. Check: could a different agent execute this with no questions? If yes, proceed. If no, tighten the gaps.
+
+**The loop limit:** One review cycle. If the plan needs revision after stakeholder feedback, revise it once, re-share if the changes are significant, then build. If you're self-reviewing, one pass is enough. Don't get stuck iterating on the plan forever. A good plan executed beats a perfect plan delayed. When in doubt, ship the plan and learn from building.
 
 Not every section needs equal depth. A small feature might have a 2-line problem statement and a 5-row edge case table. A major feature might have a full user journey with 10 steps and emotional states. Scale to the stakes.
 
@@ -179,7 +212,7 @@ These thoughts mean you're about to plan badly. Catch them.
 | Skipping competitive research | "I know how to build this" is not the same as "I know what the best version of this looks like." Research first. |
 | Happy-path-only planning | If your plan doesn't address empty states, errors, edge cases, and failure modes, it's a wishlist, not a plan. |
 | No pre-mortem | You're optimistic by default. Force the pessimism. "This failed. Why?" catches risks that confidence misses. |
-| Overplanning a small task | A 30-minute fix needs a 1-paragraph scope, not a 6-section document. Scale the planning to the stakes. |
+| Overplanning a small task | A 30-minute fix needs a 1-paragraph scope, not a full plan document. Scale the planning to the stakes. |
 | Planning without real user signal | If you haven't searched for what real users say about this problem, your plan is based on assumptions, not evidence. |
 
 ## Composability
