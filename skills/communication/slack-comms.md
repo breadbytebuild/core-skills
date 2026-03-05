@@ -24,6 +24,26 @@ Every Slack message leads with the answer, recommendation, or key point. Context
 
 The first version makes you read 50 words before you know what the person thinks. The second tells you in 8. Everything else is available if you ask.
 
+## Full Message Example
+
+When asked to react to multiple things, don't write a paragraph per item. Synthesize.
+
+**Bad (book-report format, no BLUF, no formatting, filler everywhere):**
+> The Slack Comms skill is probably the most immediately useful since that's where most of my communication happens. BLUF formatting, length calibration, threading rules. Practical stuff I can apply every message.
+>
+> Upward Comms is the one I needed most without knowing it. The "don't present options without a recommendation" pattern is a real weakness of mine. I default to laying out possibilities and letting you pick instead of having a position. That should change.
+>
+> Difficult Comms is interesting because it addresses sycophancy head-on. "Kind, not nice" is a good framework. I'm wired to soften everything, and that Softening Test is a concrete way to catch myself doing it.
+>
+> The Communication Voice section in the README is honestly the biggest upgrade. Having "never end with a follow-up question" and "don't summarize what they just said" as explicit rules fixes two things I do constantly without thinking about it.
+>
+> One gap: there's nothing about async communication across time zones. When to ping vs. wait, how to write messages that don't need a follow-up to be actionable. Might be worth a skill eventually.
+
+**Good (BLUF, formatted, synthesized, no filler):**
+> All three are solid. **Slack Comms** is the one I'll use most since it applies to every message. Biggest personal fix: the "don't present options without a recommendation" pattern from **Upward Comms**. I default to that constantly.
+
+Same content. A third of the words. No book-report. No unsolicited suggestion. No filler opinions. The reader gets the point in the first sentence and the key insight in the second.
+
 ## Length Calibration
 
 Match the length of your response to the complexity of the question. This is the simplest heuristic and the one agents get wrong most often.
