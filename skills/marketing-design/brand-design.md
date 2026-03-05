@@ -174,6 +174,17 @@ Evaluate each against:
 
 Present the 2-3 directions with a brief rationale for each. If building for a human stakeholder, share at this stage. If autonomous, pick the strongest and move to Phase 3.
 
+**How to present brand directions:**
+Don't dump 3 raw generated images. Context determines whether the human can evaluate well.
+
+For each direction, show:
+1. The mark itself (clean, on white background)
+2. The mark at favicon size (proves scalability)
+3. The mark on a dark background (proves versatility)
+4. A one-sentence rationale: "This direction encodes [idea] through [form]. It differentiates from competitors by [how]."
+
+If possible, generate a simple mockup: the logo in a website header, or on a business card, or next to competitor logos in a lineup. Logos in context are 10x easier to evaluate than logos in isolation.
+
 ### Phase 3: Refinement
 
 Iterate on the selected direction. This is where the Image Generation skill's "edit, don't re-roll" principle matters most.
@@ -185,6 +196,15 @@ Iterate on the selected direction. This is where the Image Generation skill's "e
 **Test at small scale.** Generate at 32px. Is it still recognizable?
 
 **Refine proportions.** Adjust the weight, spacing, angles. "Make the strokes thicker." "Increase the spacing between the letters." "Make the icon 20% smaller relative to the wordmark." Small adjustments, one at a time.
+
+**Prompting for clean marks:** Image models default to illustrated, textured output. Push toward clean geometry with explicit language: "flat vector, no texture, no gradient, sharp edges, solid colors, white background, no shadows." For wordmarks: "clean typographic logo, professional typeface, no illustration, no icon, just the word [name] in a distinctive font." Repeat the constraints. The model will try to add detail. Keep stripping it.
+
+**Model-specific tips for logos:**
+- **Flux:** Best for clean geometric marks and sharp vector-style output. Start here for logomarks and abstract marks.
+- **Nano Bana Pro:** Best for wordmarks and lettermarks where text rendering matters. Also strong for combination marks where text and icon need to coexist.
+- **Midjourney:** Best for early concept exploration when you want aesthetic surprise. Less controllable but sometimes produces unexpected directions worth refining in another model.
+
+**The simplification loop:** Generate, then prompt "simplify this logo, remove all unnecessary detail, reduce to the minimum elements needed." Repeat until the model can't remove anything without losing the concept. This is the reduction test applied through iteration.
 
 Aim for 5-8 refinement iterations, not 25. If you're past iteration 10 and it's still not working, the direction might be wrong. Go back to Phase 2.
 
@@ -201,8 +221,18 @@ Once the mark is locked, define the visual system around it.
 Generate the logo in its final colors. Then generate it on dark background, light background, and each secondary color as background.
 
 **Typography pairing:**
-- **Display font:** For headlines, brand moments, marketing. Should feel like it belongs to the same family as the logo. If the logo is geometric, the display font should be too.
+- **Display font:** For headlines, brand moments, marketing. Should feel like it belongs to the same family as the logo.
 - **Body font:** For readable text, UI, documentation. Functional and clean. Doesn't need to be distinctive, just legible and compatible.
+
+| Brand Personality | Display Font Style | Examples | Body Font Pairing |
+|-------------------|--------------------|----------|-------------------|
+| Technical, precise | Geometric sans | Satoshi, Space Grotesk, Geist | Inter, system-ui |
+| Warm, approachable | Humanist sans | Source Sans, Nunito, Lato | Same family or system-ui |
+| Premium, confident | High-contrast serif or distinctive sans | Playfair, Fraunces, or custom like Cereal (Airbnb) | Clean sans (Inter, Helvetica Neue) |
+| Playful, creative | Rounded sans or quirky display | Quicksand, Fredoka, Poppins | Clean sans (Lato, Open Sans) |
+| Minimal, austere | Tight, clean grotesk | Suisse, Helvetica Neue, Untitled Sans | Same family at lighter weight |
+
+Don't default to Inter for everything. It's the AI equivalent of using Arial. It works, but it communicates nothing about the brand. Pick a display font that feels like the logo sounds.
 
 **Usage rules** (define explicitly):
 - Minimum size (usually 24-32px wide for combination marks)
@@ -222,6 +252,17 @@ Before declaring the brand done, test it in context:
 6. **Monochrome test:** Black version, white version. Both work?
 
 If any test fails, go back to Phase 3 and address the specific failure. Don't re-roll the entire concept. Fix the specific problem.
+
+### Delivering Production-Ready Files
+
+A logo isn't done until it exists in usable formats. After the stress test passes:
+
+- **SVG (vector):** The most important deliverable. If you can write SVG code directly (simple geometric marks translate well to SVG markup), do it. For complex marks, use a vectorization tool (potrace, vectorizer.ai) on the highest-resolution generation. Clean vector files scale infinitely and are required for print, signage, and professional use.
+- **PNG with transparency:** Export at multiple sizes (16px favicon, 64px app icon, 512px general use, 2048px high-res). Always on transparent background.
+- **Dark and light versions:** Generate or create both. Some marks need color adjustment between backgrounds (not just inversion).
+- **Favicon .ico:** 16x16 and 32x32 in ICO format for browser tabs.
+
+If the generated mark is too complex to vectorize cleanly, that's a signal the design needs more simplification. The best logos are simple enough that their SVG code is a few paths, not hundreds.
 
 ## What World-Class Looks Like
 
