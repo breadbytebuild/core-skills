@@ -13,3 +13,6 @@ Read `skills/product-building/ROUTING.md` when: building software, designing UI/
 
 ## Model Craft
 Read `skills/model-craft/ROUTING.md` when: prompting any AI model, generating images or video, selecting which model to use, debugging bad model output, or trying to improve generation quality.
+
+## Marketing & Design
+Read `skills/marketing-design/ROUTING.md` when: creating a logo, building a brand identity, designing brand marks, choosing brand colors or typography, or evaluating whether a brand's visual identity is working.

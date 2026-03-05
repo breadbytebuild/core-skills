@@ -271,6 +271,16 @@ Skills for getting the best output from AI models.
 
 See [Model Craft ROUTING.md](skills/model-craft/ROUTING.md) for trigger conditions.
 
+### Marketing & Design (1 skill)
+
+Skills for brand identity, visual marketing, and creative direction.
+
+| Skill | What It Fixes | Core Tool |
+|-------|--------------|-----------|
+| [Brand Design](skills/marketing-design/brand-design.md) | Generic AI logos, no strategy before style, icon-as-logo, trend convergence | Brand Brief, SMART Check, AI Logo Slop Checklist, 5-Phase Execution Process |
+
+See [Marketing & Design ROUTING.md](skills/marketing-design/ROUTING.md) for trigger conditions.
+
 ## Skill Format
 
 Each skill is a Markdown file with YAML frontmatter:
