@@ -22,6 +22,42 @@ This skill teaches the loop that turns adequate output into excellent output: it
 - When managing long contexts or complex multi-step prompts
 - When you've run the same prompt 3 times and keep getting mediocre results
 
+## Crafting the First Draft
+
+A strong first draft saves 5+ iterations. A weak one wastes them. Before writing a single word of prompt, answer these four questions:
+
+1. **Goal:** What does success look like in one sentence? Write it down. This becomes what you evaluate output against.
+2. **Role:** Does the model need a persona? "You are a senior product designer" activates different reasoning than no role at all. Skip this for simple tasks. Use it when expertise or tone matters.
+3. **Context:** What does the model need to know that it doesn't already? Your specific situation, the data it's working with, the constraints. Don't explain what it already knows (what a PDF is, how JavaScript works). Only provide what's unique to your task.
+4. **Output shape:** What should the result look like? A table, a list, JSON, 3 paragraphs, a one-liner? If you don't specify, the model picks its default (usually a wall of text).
+
+**Assemble in this order:**
+
+```
+[ROLE if needed]
+[GOAL: what you want, in one clear sentence]
+[CONTEXT: what the model needs to know]
+[CONSTRAINTS: what NOT to do, length limits, style rules]
+[OUTPUT FORMAT: what the result should look like]
+[EXAMPLE if tone/style matters: one concrete example of good output]
+```
+
+**The test for a good first draft:** Could someone who isn't you read this prompt and produce exactly what you want? If there's ambiguity, the model will interpret it differently than you intended.
+
+### Worked Example
+
+**Task:** Write an error message for when a payment fails.
+
+**Weak first draft:** "Write an error message for a failed payment."
+
+**Output:** "An error has occurred while processing your payment. Please try again later or contact support."
+
+**Strong first draft:** "Write a user-facing error message for when a credit card payment fails at checkout. The tone should be calm and helpful, not alarming. Tell the user what happened, suggest the most likely fix (re-entering card details), and offer a fallback (trying a different payment method). Maximum 2 sentences."
+
+**Output:** "Your payment didn't go through. Double-check your card details and try again, or use a different payment method."
+
+The weak draft was ambiguous (what kind of payment? what tone? how long?). The model filled the gaps with generic defaults. The strong draft constrained every dimension that matters. The difference: one iteration vs. potentially five.
+
 ## The Iteration Loop
 
 This is the single most important thing in this skill. One-shot prompting is amateur. The loop is professional.
