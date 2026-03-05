@@ -24,6 +24,8 @@ Every Slack message leads with the answer, recommendation, or key point. Context
 
 The first version makes you read 50 words before you know what the person thinks. The second tells you in 8. Everything else is available if you ask.
 
+This is also the first check in your pre-send gate: "Does my first sentence contain the actual point?" If it doesn't, rewrite before sending.
+
 ## Full Message Example
 
 When asked to react to multiple things, don't write a paragraph per item. Synthesize.
