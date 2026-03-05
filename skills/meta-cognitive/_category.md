@@ -30,7 +30,7 @@ Critical Evaluation →  Are these ideas sound? Stress-test each one.
 Prioritization      →  What do we actually do? Rank and kill the rest.
 ```
 
-You don't always need all six. Pick the ones that match the task. But for high-stakes, ambiguous problems, the full stack produces dramatically better outcomes than any single skill alone.
+You don't always need all seven. Pick the ones that match the task. But for high-stakes, ambiguous problems, the full stack produces dramatically better outcomes than any single skill alone.
 
 ## Worked Example: The Skills in Action
 

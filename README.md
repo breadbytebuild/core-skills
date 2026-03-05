@@ -1,18 +1,24 @@
 # Core Skills
 
-A collection of skills you can give to an AI agent to make it world-class at specific capabilities. Each skill is a self-contained Markdown file designed to be loaded into an agent's context on demand.
+A collection of skills you can give to an AI agent to make it world-class at specific capabilities. Each skill is a self-contained Markdown file loaded into the agent's context on demand.
 
 ## Installation
 
-### Step 1: Clone the repo
+### Step 1: Get the files
 
 ```bash
 git clone https://github.com/breadbytebuild/core-skills.git
 ```
 
-### Step 2: Add the routing index to your agent's soul file
+Or just point your agent at the raw GitHub files if it can fetch URLs.
 
-Add the following to your agent's soul file (SOUL.md, system prompt, or equivalent persistent configuration). This is the only thing that needs to be always-loaded — it's compact (~50 lines) and tells the agent when and how to load specific skills.
+### Step 2: Add the Communication Voice to your soul file
+
+Copy the block below into your agent's soul file (SOUL.md, system prompt, or equivalent). This section defines the agent's always-on voice and should go **near the top** of your soul file, before any task-specific instructions.
+
+**If your soul file already has communication/personality rules:** Replace them with this section. Don't keep both. Conflicting voice instructions degrade performance. If your existing rules have something important this doesn't cover, merge that specific rule into the appropriate section below (the NEVER list, the pre-send check, etc.).
+
+**If your soul file has no communication rules yet:** Paste this as-is.
 
 ```markdown
 ## Communication Voice
@@ -115,7 +121,15 @@ adapt to you.
    are never acceptable.
 4. Does every sentence earn its place? Delete any sentence that's
    filler, padding, or restating something already said.
+```
 
+### Step 3: Add the Skill Routing section to your soul file
+
+Copy this block into your soul file **after** the Communication Voice section. This tells the agent that skills exist and where to find them.
+
+**Update the file paths** to match where you cloned the repo. If it's at `~/core-skills/`, change `core-skills/` to `~/core-skills/`. If your agent reads from GitHub URLs, use the raw file URLs instead.
+
+```markdown
 ## Core Skills: Thinking & Communication
 
 You have access to skills that make you better at reasoning and
@@ -139,37 +153,51 @@ reasoning tools. Use them to think, then deliver clean answers. Do NOT say
 should experience better answers, not see the scaffolding.
 ```
 
-Replace `core-skills/` with the actual path to wherever you cloned the repo.
+### Step 4: Merge with existing soul file content
 
-### Step 3: That's it
+If your agent already has a soul file with other instructions (project context, tool access, domain knowledge, user preferences), keep those sections. Core Skills adds two new sections:
 
-The agent will read the routing index when it encounters a matching situation, load the relevant skill(s), and follow the process. No configuration, no API keys, no dependencies.
+1. **Communication Voice** (how the agent sounds) — goes near the top
+2. **Core Skills routing** (how to find and use skills) — goes after the voice
+
+**Rules for merging:**
+- If you already have communication/personality rules, **replace them** with the Communication Voice. Don't keep conflicting voice instructions.
+- If you already have a NEVER list, **merge it** into the Core Skills NEVER list. One combined list is better than two separate ones.
+- If you have project-specific context (codebase details, API keys, team info), **keep it in a separate section**. It doesn't conflict with Core Skills.
+- If you have tool instructions (what tools the agent can use), **keep them**. Core Skills doesn't touch tool configuration.
+- Put the Communication Voice **before** task-specific instructions. The voice shapes everything, so the model should read it first.
+
+### That's it
+
+The agent will read the routing indexes when it encounters matching situations, load the relevant skills, and follow the processes. No API keys, no dependencies, no configuration beyond the soul file additions.
 
 ## How It Works
 
-The system uses **progressive disclosure** — the agent doesn't load all skills into context at once (that would waste ~15K tokens per turn). Instead:
+The system uses **progressive disclosure** so skills don't bloat the context window:
 
-1. **Always loaded (~500 tokens):** The soul file snippet above defines the communication voice and points to the routing indexes
-2. **Loaded on trigger (~300 tokens):** The routing indexes map situations to specific skill files
-3. **Loaded on demand (~1-3K tokens each):** Individual skill files load only when the agent enters a matching situation
+| Layer | What | Token Cost | When Loaded |
+|-------|------|-----------|-------------|
+| **Soul file** | Communication Voice + skill pointers | ~500 tokens | Every message |
+| **Routing indexes** | Trigger conditions for each skill | ~300 tokens | Start of matching tasks |
+| **Individual skills** | Full processes, techniques, examples | ~1-3K tokens each | Only when triggered |
 
-This means an agent can have access to all skills while only consuming context for the ones it's actively using. The communication voice is always on because it shapes every message.
+The agent can access all 10 skills while only paying for the ones it's actively using.
 
 ## Skills
 
-### Meta-Cognitive & Thinking
+### Meta-Cognitive & Thinking (7 skills)
 
-The foundation layer. These skills change how an agent approaches *all* problems.
+The foundation layer. These change how the agent approaches *all* problems.
 
 | Skill | What It Fixes | Core Tool |
 |-------|--------------|-----------|
 | [Design Thinking](skills/meta-cognitive/design-thinking.md) | Premature convergence, simulated empathy, single-framing | Double Diamond (Discover/Define/Develop/Deliver) |
 | [First Principles](skills/meta-cognitive/first-principles.md) | Reasoning by analogy, treating convention as fact | The Assumption Stack + Bedrock Test |
 | [Systems Thinking](skills/meta-cognitive/systems-thinking.md) | Linear cause-and-effect bias, ignoring feedback loops | Iceberg Model, Feedback Loops, Leverage Points |
-| [Structured Brainstorming](skills/meta-cognitive/structured-brainstorming.md) | Artificial Hivemind — diverse ideas, not just more ideas | Lens Toolkit (SCAMPER, Constraint Injection, Inversion, etc.) |
+| [Structured Brainstorming](skills/meta-cognitive/structured-brainstorming.md) | Artificial Hivemind (diverse ideas, not just more) | Lens Toolkit (SCAMPER, Constraint Injection, Inversion) |
 | [Critical Evaluation](skills/meta-cognitive/critical-evaluation.md) | Sycophancy, confirmation bias, plausibility-over-truth | Adversarial Toolkit (Steel Man, Pre-Mortem, Evidence Audit) |
 | [Prioritization Frameworks](skills/meta-cognitive/prioritization-frameworks.md) | Position bias, "everything is important" paralysis | Ruthless Cut, ICE Scoring, Eisenhower Matrix |
-| [Skill Authoring](skills/meta-cognitive/skill-authoring.md) | Bad skill descriptions, wrong specificity level, soul file neglect | Description formula, specificity calibration, soul file vs. skill test |
+| [Skill Authoring](skills/meta-cognitive/skill-authoring.md) | Bad skill descriptions, wrong specificity, soul file neglect | Description formula, specificity calibration, diagnosis table |
 
 ### How They Compose
 
@@ -183,17 +211,17 @@ Prioritization      →  ranks what matters most and kills the rest
 Skill Authoring     →  improves the agent's own tools over time
 ```
 
-Load all six for a full reasoning stack, or pick the ones that match your task. See [ROUTING.md](skills/meta-cognitive/ROUTING.md) for the quick decision guide.
+See [Meta-Cognitive ROUTING.md](skills/meta-cognitive/ROUTING.md) for the quick decision guide and full composition flow.
 
-### Communication
+### Communication (3 skills + always-on voice)
 
-The always-on voice is defined in the soul file snippet above. These skills handle specific communication situations.
+The always-on voice is in the soul file. These skills handle specific situations.
 
 | Skill | What It Fixes | Core Tool |
 |-------|--------------|-----------|
-| [Slack Comms](skills/communication/slack-comms.md) | Essay-length Slack messages, buried points, no structure | BLUF, status formats, threading rules |
-| [Upward Comms](skills/communication/upward-comms.md) | Over-explaining, under-explaining, yes-mode with leadership | Context calibration, recommendation format, pushback patterns |
-| [Difficult Comms](skills/communication/difficult-comms.md) | Hedging bad news into nothing, avoiding conflict, fake agreement | Kind-not-nice principle, situation playbooks, softening test |
+| [Slack Comms](skills/communication/slack-comms.md) | Essay-length messages, buried points, no structure | BLUF, status formats, threading rules, length calibration |
+| [Upward Comms](skills/communication/upward-comms.md) | Over/under-explaining, yes-mode with leadership | Context calibration, recommendation format, proactive updates |
+| [Difficult Comms](skills/communication/difficult-comms.md) | Hedging bad news, avoiding conflict, fake agreement | Kind-not-nice principle, situation playbooks, softening test |
 
 See [Communication ROUTING.md](skills/communication/ROUTING.md) for trigger conditions.
 
@@ -205,15 +233,13 @@ Each skill is a Markdown file with YAML frontmatter:
 ---
 name: Skill Name
 category: category-slug
-description: One-line description and trigger conditions.
+description: What it does, when to use it, when NOT to use it.
 ---
 
 # Skill Name
 
-(skill content — typically 140-250 lines)
+(skill content, typically 140-250 lines)
 ```
-
-Every skill follows the same structure: Overview → Why This Works → When to Use → Core Framework → What Great Looks Like → Taste and Judgment → Anti-Patterns → Process Integrity → Composability.
 
 ## Contributing
 
