@@ -167,6 +167,8 @@ This skill is one layer in a thinking stack. It works alone but becomes more pow
 
 - Load **Design Thinking** alongside this — First Principles sharpens the Define phase by stripping assumptions from your problem statement
 - Load **Systems Thinking** to understand how your bedrock truths interact, where feedback loops exist, and where leverage hides
+- Load **Structured Brainstorming** after reaching bedrock — with assumptions cleared, brainstorming produces more genuinely novel solutions
 - Load **Critical Evaluation** to stress-test whether your "bedrock" is actually bedrock or just a deeper convention
+- Load **Prioritization Frameworks** to decide which bedrock-grounded solutions to pursue when you have more options than resources
 
-These skills are additive. First Principles finds the truths. Systems Thinking maps their interactions. Critical Evaluation tests them. Design Thinking ensures you're solving for real humans, not just elegant abstractions.
+These skills are additive. First Principles finds the truths. Systems Thinking maps their interactions. Brainstorming generates solutions from cleared ground. Critical Evaluation tests them. Prioritization selects the vital few.

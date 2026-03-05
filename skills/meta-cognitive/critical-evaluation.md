@@ -36,7 +36,8 @@ LLMs are sycophantic by default — research shows they agree with users 58% of 
 - For trivial decisions where rigor would be overthinking
 
 **Composes with other skills:**
-- **Structured Brainstorming** — it generates diverse options, this skill selects the best one
+- **Structured Brainstorming** — it generates diverse options, this skill tests whether each one holds up
+- **Prioritization Frameworks** — Critical Evaluation tests individual ideas for *soundness* ("is this idea good?"). Prioritization ranks across ideas for *importance* ("which good ideas matter most?"). Evaluate first, then prioritize — don't rank ideas you haven't tested.
 - **Design Thinking** — use Critical Evaluation during the Deliver phase to stress-test your recommendation
 - **First Principles** — use to test whether your "bedrock" truths are actually bedrock
 - **Systems Thinking** — use to check whether your evaluation accounts for feedback loops and second-order effects
@@ -133,9 +134,10 @@ These thoughts mean you're validating instead of evaluating. Stop and run a test
 
 This skill is one layer in a thinking stack. It works alone but becomes more powerful combined:
 
-- Load **Structured Brainstorming** before this — it generates diverse options, Critical Evaluation selects the strongest
 - Load **Design Thinking** alongside this — Critical Evaluation sharpens the Deliver phase by stress-testing the recommendation
 - Load **First Principles** to test whether claimed "bedrock truths" survive the Disconfirmation Test
-- Load **Systems Thinking** to check whether your evaluation accounts for feedback loops and second-order effects
+- Load **Systems Thinking** to check whether your evaluation accounts for feedback loops and second-order effects — the "And Then What?" protocol catches systemic risks the Adversarial Toolkit might miss
+- Load **Structured Brainstorming** before this — it generates diverse options, Critical Evaluation selects the strongest
+- Load **Prioritization Frameworks** after this — Critical Evaluation tests individual ideas for soundness, Prioritization ranks the survivors and decides which to pursue
 
-These skills are additive. Brainstorming generates. Critical Evaluation tests. First Principles finds truth. Systems Thinking maps connections. Together they prevent both creative poverty (too few ideas) and evaluative poverty (bad ideas surviving scrutiny).
+These skills are additive. Brainstorming generates. Critical Evaluation tests. Prioritization ranks. First Principles finds truth. Systems Thinking maps connections. Together they prevent both creative poverty (too few ideas) and evaluative poverty (bad ideas surviving scrutiny).

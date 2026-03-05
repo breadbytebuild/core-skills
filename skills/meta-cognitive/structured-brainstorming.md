@@ -143,7 +143,9 @@ These thoughts mean you're in the hivemind. Switch lenses and diverge harder.
 This skill is one layer in a thinking stack. It works alone but becomes more powerful combined:
 
 - Load **Design Thinking** alongside this — Structured Brainstorming powers the Develop phase with genuine ideation diversity
+- Load **First Principles** before brainstorming to strip assumptions and widen the solution space — fewer assumptions means more creative territory
+- Load **Systems Thinking** to reveal feedback loops and interconnections that suggest non-obvious solution directions
 - Load **Critical Evaluation** after brainstorming to rigorously select from your options — brainstorming generates, evaluation selects
-- Load **First Principles** before brainstorming to strip assumptions and widen the solution space
+- Load **Prioritization Frameworks** after evaluation to rank your surviving ideas and decide which to pursue — the Ruthless Cut is especially effective post-brainstorm
 
-These skills are additive. First Principles clears the field. Structured Brainstorming fills it with diverse options. Critical Evaluation picks the best one. Design Thinking orchestrates the whole flow.
+These skills are additive. First Principles clears the field. Systems Thinking maps the terrain. Structured Brainstorming fills it with diverse options. Critical Evaluation tests them. Prioritization selects the vital few. Design Thinking orchestrates the whole flow.

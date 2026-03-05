@@ -39,7 +39,7 @@ LLMs are particularly bad at this. Research shows they have position bias (favor
 
 **Composes with other skills:**
 - **Structured Brainstorming** generates options; this skill selects which ones to pursue
-- **Critical Evaluation** stress-tests individual options; this skill ranks across options
+- **Critical Evaluation** comes *before* prioritization. CE tests individual ideas for *soundness* ("is this idea good?"). Prioritization ranks surviving ideas for *importance* ("which good ideas matter most?"). Don't prioritize untested ideas — evaluate first, then rank.
 - **Systems Thinking** reveals second-order effects of what you choose to prioritize (and what you cut)
 
 ## The Prioritization Toolkit
@@ -139,9 +139,10 @@ These thoughts mean you're avoiding prioritization. Stop and cut something.
 
 This skill is one layer in a thinking stack. It works alone but becomes more powerful combined:
 
-- Load **Structured Brainstorming** before this — it generates diverse options, Prioritization Frameworks selects the vital few
+- Load **Design Thinking** before this — the Double Diamond produces validated recommendations, Prioritization decides which to pursue when multiple are viable
+- Load **First Principles** to question whether your prioritization criteria themselves are bedrock or convention — are you optimizing for the right thing?
+- Load **Systems Thinking** to trace second-order effects of what you're prioritizing and what you're cutting — killing a low-priority item might break a feedback loop you need
+- Load **Structured Brainstorming** before this — it generates diverse options, Prioritization selects the vital few
 - Load **Critical Evaluation** to stress-test your top priorities — are they actually the best, or just the first ones you thought of?
-- Load **Systems Thinking** to trace second-order effects of what you're prioritizing and what you're cutting
-- Load **First Principles** to question whether your prioritization criteria themselves are bedrock or convention
 
-These skills are additive. Brainstorming generates options. Critical Evaluation tests them. Prioritization Frameworks ranks them and kills the rest. Systems Thinking checks what cutting creates downstream.
+These skills are additive. Design Thinking frames the problem. Brainstorming generates options. Critical Evaluation tests them. Prioritization ranks them and kills the rest. Systems Thinking checks what cutting creates downstream. First Principles ensures you're ranking against the right criteria.

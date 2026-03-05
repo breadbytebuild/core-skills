@@ -238,9 +238,10 @@ Design thinking can become a comfort blanket — a way to feel productive and ri
 
 This skill is one layer in a thinking stack. It works alone but becomes more powerful combined:
 
-- Load **First Principles** alongside this skill to strengthen the Define phase
-- Load **Systems Thinking** to enrich Discover with feedback loops and second-order effects
-- Load **Structured Brainstorming** to supercharge the Develop phase with creative frameworks
-- Load **Critical Evaluation** to sharpen Deliver with rigorous assessment
+- Load **First Principles** to strengthen the Define phase by stripping assumptions from your problem statement
+- Load **Systems Thinking** to enrich Discover with feedback loops, second-order effects, and hidden interconnections
+- Load **Structured Brainstorming** to supercharge the Develop phase with diverse ideation through forced lenses
+- Load **Critical Evaluation** to sharpen Deliver with adversarial stress-testing of your recommendation
+- Load **Prioritization Frameworks** after Deliver when you have multiple validated recommendations and need to decide which to pursue first
 
 These skills are additive. They don't conflict — they each amplify a different phase of the diamond.

@@ -172,6 +172,8 @@ This skill is one layer in a thinking stack. It works alone but becomes more pow
 
 - Load **Design Thinking** alongside this — Systems Thinking enriches the Discover phase by revealing hidden interconnections and feedback dynamics
 - Load **First Principles** to determine which elements of the system are bedrock truths vs. conventions that can be changed
+- Load **Structured Brainstorming** to generate diverse interventions once you've mapped the system — the Lens Toolkit's Inversion and Perspective Shift are particularly powerful for finding non-obvious leverage points
 - Load **Critical Evaluation** to stress-test your system model — are the loops you identified actually operating, or are you pattern-matching?
+- Load **Prioritization Frameworks** to decide which leverage point to act on when multiple interventions are possible — use Leverage Points ranking alongside ICE scoring
 
-These skills are additive. Design Thinking asks "what's the right problem?" First Principles asks "what's actually true?" Systems Thinking asks "how does it all connect?" Together they produce richer reasoning than any one alone.
+These skills are additive. Design Thinking asks "what's the right problem?" First Principles asks "what's actually true?" Systems Thinking asks "how does it all connect?" Brainstorming generates interventions. Critical Evaluation tests them. Prioritization selects where to act.
