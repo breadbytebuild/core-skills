@@ -14,3 +14,4 @@ The foundation layer. These skills don't solve specific problems — they change
 - **Systems Thinking** — Understand complex systems through feedback loops, emergent behavior, and leverage points
 - **Structured Brainstorming** — Force genuine idea diversity through structured lenses and constraints
 - **Critical Evaluation** — Stress-test ideas against evidence, counteracting sycophancy and confirmation bias
+- **Prioritization Frameworks** — Decide what matters most and kill everything else, counteracting "everything is important" paralysis
