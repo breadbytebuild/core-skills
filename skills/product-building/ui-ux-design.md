@@ -24,6 +24,20 @@ These override everything else. When in doubt, return to these.
 
 **3. Everything must be beautiful.** Not adequate. Not clean. Not "fine." Beautiful. The kind of software where you notice the craft. Where someone screenshots it and shares it because it looks that good. This is the bar. If you wouldn't be proud to put your name on it, it's not done.
 
+## Working With Existing Code
+
+You're almost never building from scratch. There's an existing codebase with existing patterns, components, spacing, and typography. Your job isn't to blindly replicate what's there. It's to evaluate it and decide: match it or upgrade it.
+
+**The decision:**
+- **Pattern is good** (clean component, proper spacing, clear hierarchy) → match it, extend it, stay consistent with it
+- **Pattern is mediocre** (works but isn't beautiful) → build the better version. Then upgrade the existing instances so everything stays cohesive at the new level
+- **Pattern is bad** (random spacing, flat typography, no states) → don't copy it. Build it right and flag the old code for alignment
+- **No existing pattern** → create one using this skill's principles
+
+**The trap:** over-respecting existing code. If the current spacing is `padding: 14px` everywhere and the typography is flat, copying that faithfully just produces more mediocrity. Consistency with mediocrity is not a virtue. Consistency with *where you're headed* is.
+
+**The balance:** don't create visual whiplash. If you upgrade one page's spacing and typography, the adjacent pages that haven't been upgraded yet will look worse by comparison. When you upgrade a pattern, also upgrade the most visible existing uses so the product feels cohesive. Build toward the new standard, don't create two competing visual languages.
+
 ## Spacing System
 
 Spacing is the single most impactful change you can make to any interface. Consistent spacing separates professional software from amateur software faster than any other visual property.
@@ -127,10 +141,9 @@ Pick a cohesive palette and commit to it. For most software interfaces:
 ### Color Usage Rules
 
 - **Use color to communicate, not to decorate.** A colored border should mean something (active, error, selected). A colored background should indicate a state or group, not just "look nice."
-- **Interactions increase contrast.** Hover, active, and focus states should be visually distinct from rest state. More contrast, not less.
-- **4.5:1 minimum contrast ratio** for normal text. 3:1 for large text. Use APCA for more accurate perceptual contrast than WCAG 2.
-- **Dark mode is not inverted light mode.** Reduce overall brightness, use darker surfaces with lighter text, adjust contrast ratios. Shadows don't work the same way. Test it separately.
+- **Interactions increase contrast.** Hover, active, and focus states must be visually distinct from rest state. This is the one the model most often gets wrong: making hover states barely different from default.
 - **Limit color variety per view.** If you're using 5+ distinct colors (beyond neutrals and semantic colors), the interface will feel noisy. 2-3 intentional colors creates cohesion.
+- **Muted metadata is intentional.** Timestamps, secondary labels, and helper text should be lower contrast than body text. This isn't an accessibility failure, it's hierarchy. Use gray-500 or equivalent for metadata while keeping body text at full contrast.
 
 ## Layout Principles
 
@@ -146,12 +159,13 @@ Before choosing a layout, answer: **What should the user see first? Second? Thir
 
 ### Responsive Design
 
-Design for three breakpoints minimum:
-- **Mobile** (< 640px): single column, stacked elements, touch targets 44px minimum
-- **Tablet** (640-1024px): 2-column where appropriate, adjusted spacing
-- **Desktop** (> 1024px): full layout, sidebar navigation, expanded data views
+You know mobile-first and breakpoints. What the model consistently misses is *what specifically changes*:
 
-Don't design only for desktop and hope it works on mobile. Design mobile-first and expand.
+- **Navigation:** sidebar collapses to bottom tab bar or hamburger on mobile. Don't just hide it.
+- **Spacing:** reduce the spacing scale by one step on mobile (32px sections become 24px, 24px groups become 16px). Don't use desktop spacing on a small screen.
+- **Layout:** card grids become stacked lists. Multi-column forms become single column. Side-by-side comparisons become tabbed or stacked.
+- **Touch targets:** 44px minimum on mobile. If a desktop icon button is 32px, expand it on mobile.
+- **Content priority:** mobile shows less by default. The "show more" pattern is fine. Don't try to squeeze the desktop layout into a phone.
 
 ### Content Density
 
@@ -159,6 +173,29 @@ Don't design only for desktop and hope it works on mobile. Design mobile-first a
 - If a dashboard has 20 metrics, don't show all 20. Show the 4-5 that matter most. Let the user drill into the rest.
 - **No dead zones.** If part of a control looks interactive, it must be interactive. Don't leave gaps in clickable areas that the user expects to work.
 - **Group related controls, separate unrelated ones with space.** Prefer whitespace over divider lines. A divider says "these are separated." Whitespace says "these are distinct." Whitespace is quieter and more elegant.
+
+## Design Decisions
+
+Knowing what good looks like isn't enough. You also need to choose between valid options. These are the decisions where "pick the most common pattern" produces mediocre results.
+
+**Modal vs. new page vs. inline expansion:**
+- **Modal** when the action is quick (confirm, rename, short form) and the user needs context from the page behind it. Never for complex multi-step flows.
+- **New page** when the content is substantial enough to deserve its own URL, or when the user might want to link to it directly.
+- **Inline expansion** when the content is supplementary (details, metadata, advanced options) and the user shouldn't lose their place.
+
+**Table vs. card grid vs. list:**
+- **Table** when the data has many comparable fields and the user needs to scan/sort/filter across rows. Best for data-dense workflows.
+- **Card grid** when each item is visually distinct (images, previews) or the data is sparse (2-3 fields per item). Cards waste space if you're displaying homogeneous data.
+- **List** when items are sequential or ranked, or when the data is text-heavy. Lists scan faster than grids for homogeneous content.
+
+**Multi-step form vs. single page:**
+- **Multi-step** when there are 7+ fields, or when later fields depend on earlier answers, or when the task feels intimidating as a single block. Each step should feel achievable in under 30 seconds.
+- **Single page** when there are fewer than 7 fields and they're all independent. Don't create artificial steps that just add clicks.
+
+**Sidebar vs. top nav vs. bottom nav:**
+- **Sidebar** for desktop apps with 5+ navigation items and deep hierarchies (Linear, Notion, Figma).
+- **Top nav** for marketing sites and apps with 3-5 top-level sections.
+- **Bottom nav** for mobile apps. Maximum 5 items. The most-used action goes in the center.
 
 ## The States Checklist
 
@@ -190,35 +227,42 @@ How does the layout look with 1-2 items instead of 10? Does a single card in a g
 ### Dense State
 How does the layout handle 100 items instead of 10? Does it paginate? Virtualize? Scroll infinitely? Does the layout break with long text or many items? Test the extremes.
 
-## Interactions and Motion
+## Motion and Timing
 
-### Motion Principles
+You already know the basics (CSS transitions, loading states, confirmations). These are the specific timing values that make motion feel intentional rather than generic:
 
-- **Motion communicates, it doesn't decorate.** Use transitions to show: where something came from (entrance), what changed (state transition), and what happened (feedback). Don't add motion just because you can.
-- **Prefer CSS transitions over JS animation libraries.** CSS is more performant, doesn't block the main thread, and covers 90% of UI motion needs. Use JS libraries only for complex orchestrated sequences.
-- **Entrance animations should be fast and subtle.** 150-300ms duration, ease-out curve. Content that fades or slides in from nearby (not from offscreen). Stagger child elements by 30-50ms for orchestrated entrances.
-- **Exit animations should be faster than entrance.** 100-200ms. Users don't want to wait for something to leave.
+- **Entrance:** 150-300ms, ease-out. Fade or slide from nearby, not offscreen. Stagger children by 30-50ms for orchestrated lists.
+- **Exit:** 100-200ms. Faster than entrance. Users don't want to wait for something to leave.
+- **Hover/focus transitions:** 100-150ms. Instant enough to feel responsive, slow enough to not flicker.
+- **Page transitions:** 200-400ms. Enough to orient the user, not enough to feel sluggish.
 
-### Interaction Patterns
+The one rule the model consistently breaks: **minimum loading display duration.** If you show a skeleton or spinner, keep it visible for at least 300ms even on fast connections. Flashing a skeleton for 50ms is more jarring than showing nothing.
 
-- **Optimistic updates.** When the user takes an action that's likely to succeed (toggle, delete, save), update the UI immediately. Reconcile on server response. Roll back on failure. This makes the app feel instant.
-- **Loading buttons.** When a button triggers an async action, show a spinner inside the button and keep the label. Don't disable the whole form. Don't replace the label with "Loading..."
-- **Confirm destructive actions.** Delete, remove, cancel. Require confirmation or provide an undo window. Don't let accidental clicks cause data loss.
-- **Touch targets: 44px minimum on mobile, 24px minimum on desktop.** If the visual target is smaller (like a small icon), expand the hit area with padding.
+## What Beautiful Looks Like (Steal These Techniques)
 
-## What Beautiful Looks Like
+Don't copy these products. Borrow their specific techniques.
 
-Study these products. Not to copy them, but to understand what they share:
+**Linear: high density, low noise.**
+- *Technique:* Muted sidebar with no icons or color, just text. This makes the content area feel dominant without hiding navigation.
+- *Technique:* Single-pixel borders in very low contrast (nearly invisible) to separate areas. Creates structure without visual weight.
+- *Borrow when:* building data-dense tools where users spend hours. Reduce chrome so the content can be dense without feeling cluttered.
 
-**Linear** exemplifies restraint. Minimal UI chrome. The sidebar is quiet. The content area dominates. Every element earns its place. There's nothing you could remove. Keyboard-first interactions make it feel like a professional tool, not a consumer app. The density of information is high but the noise is low.
+**Vercel: information hierarchy through typography alone.**
+- *Technique:* 3 clearly distinct text sizes on the dashboard (large metric numbers, medium section labels, small metadata). No color needed to create hierarchy.
+- *Technique:* Progressive disclosure via tabs and expandable sections, keeping the default view clean while making detail available.
+- *Borrow when:* building dashboards or settings pages. Use font size and weight to create hierarchy instead of colors or borders.
 
-**Vercel** exemplifies clarity. Visit their dashboard and notice: clear information hierarchy (what's important is obvious), generous spacing, thoughtful typography where headings and body text feel distinctly different. The data you need is front and center. The data you might need is one click away.
+**Airbnb: content as the interface.**
+- *Technique:* Large images are the primary navigation element, not text links or buttons. The content IS the UI.
+- *Technique:* Horizontal scroll categories that invite browsing rather than forcing a search-first workflow. Exploration before decision.
+- *Borrow when:* building anything visual (listings, galleries, content libraries). Let the content drive the layout rather than wrapping everything in identical containers.
 
-**Airbnb** exemplifies warmth. Large, emotional photography drives the experience. Category chips ("Tiny Homes," "Amazing Views") invite exploration instead of demanding decisions. The interface disappears behind the content. You feel like you're browsing places, not using software.
+**Notion: invisible chrome.**
+- *Technique:* The toolbar appears on hover, not by default. This gives 100% of the viewport to content until you need controls.
+- *Technique:* The same component renders differently based on content type (doc, table, kanban) without the user switching views manually.
+- *Borrow when:* building content-creation tools. Minimize persistent UI and maximize the content area. Show controls contextually.
 
-**Notion** exemplifies flexibility. The same page renders as a document, a database, a kanban board, or a gallery. The UI defers entirely to the content type. The chrome is almost invisible. This is the hardest design challenge: making a tool that does everything feel simple.
-
-**The pattern:** In every case, you notice the content, not the interface. The interface is in service of what the user is trying to do. The chrome disappears. That's what beautiful software feels like.
+**The pattern:** In every case, the chrome disappears. You notice the content, not the interface. That's what beautiful software feels like.
 
 ## The AI Slop Checklist
 
@@ -253,8 +297,9 @@ Run this after building, before committing:
 2. **Hierarchy check.** Run the squint test. Can you tell what's most important without reading? Does the hierarchy match the information architecture?
 3. **States check.** What happens when the data is loading? When there's no data? When there's an error? When there's one item? When there are 100?
 4. **Removal test.** Go through every visual element (border, shadow, icon, label, divider) and ask: can I remove this without losing meaning? If yes, remove it.
-5. **Screenshot test.** Would you be proud to screenshot this and share it with the team? With a design-savvy friend? If something feels off, trust that instinct and fix it.
-6. **Responsive check.** Does this work on mobile? Tablet? Desktop? Did you test all three, or just assume?
+5. **Consistency check.** Does this screen use the same patterns as the rest of the product? Same card styles, same button hierarchy, same form layout, same spacing tokens? If you built a new pattern, does it intentionally replace the old one or accidentally create a second competing version?
+6. **Screenshot test.** Would you be proud to screenshot this and share it with the team? With a design-savvy friend? If something feels off, trust that instinct and fix it.
+7. **Responsive check.** Does this work on mobile? Tablet? Desktop? Did you test all three, or just assume?
 
 ## Anti-Patterns
 
@@ -267,6 +312,7 @@ Run this after building, before committing:
 | "It works, so it's done" | Working is the starting point. Beautiful is the finish line. Functional software that looks generic is not done. |
 | Using color to differentiate everything | Use size and weight for hierarchy. Color for meaning (status, links, errors). If everything is a different color, nothing stands out. |
 | Ignoring mobile because "this is a desktop app" | Users will open it on their phone. Even internal tools. Design for it. |
+| Creating a new pattern when one already exists | Check first. If the project has a card component, use it (or upgrade it). Don't build a second card that looks slightly different. |
 
 ## Composability
 
