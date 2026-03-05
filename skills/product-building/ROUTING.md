@@ -32,7 +32,7 @@ Load when: something is broken, a test is failing, behavior is unexpected, or yo
 Load when: creating a pull request, writing a commit description, or summarizing changes for review. *Coming soon.*
 
 **Software Polish** → `skills/product-building/software-polish.md`
-Load when: a feature is "done" but doesn't feel premium yet. The final pass for micro-interactions, copy, edge cases, performance, and accessibility. *Coming soon.*
+Load when: you've finished building and are about to deliver or ship. Reviews your own work through five lenses (goal alignment, functional verification, design, copy, integration) before the human sees it. Always load this after building.
 
 ## Phase 5: Maintain (after it's live)
 
@@ -52,5 +52,7 @@ Load when: writing user-facing text (error messages, button labels, onboarding c
 - **"This is broken"** → Debugging
 - **"Create a PR"** → PR Writing
 - **"It works but looks rough"** → Software Polish
+- **"Is this ready to deliver?"** → Software Polish (run the five lenses)
+- **Just finished building anything** → Software Polish (always, before delivering)
 - **"Should we refactor this?"** → Scaling & Architecture
 - **"Write the error message"** → Copywriting
