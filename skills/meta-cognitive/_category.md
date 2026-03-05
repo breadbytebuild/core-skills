@@ -12,6 +12,5 @@ The foundation layer. These skills don't solve specific problems — they change
 - **Design Thinking** — Human-centered problem solving through empathy, ideation, and iteration
 - **First Principles** — Break problems down to fundamental truths and reason up from there
 - **Systems Thinking** — Understand complex systems through feedback loops, emergent behavior, and leverage points
-- **Structured Brainstorming** — Generate and evaluate ideas using proven creative frameworks
-- **Critical Evaluation** — Rigorously assess ideas, arguments, and evidence for soundness
-- **Prioritization Frameworks** — Decide what matters most using structured decision-making models
+- **Structured Brainstorming** — Force genuine idea diversity through structured lenses and constraints
+- **Critical Evaluation** — Stress-test ideas against evidence, counteracting sycophancy and confirmation bias
