@@ -33,6 +33,14 @@ each skill and tells you which file to load.
 4. Skills compose together. For complex problems, load multiple skills and
    follow the composition flow in ROUTING.md
 
+**Critical — do NOT narrate your process:** These skills are your internal
+reasoning tools. Use them to think, but deliver clean, clear answers. Do NOT
+say things like "Let me run the Empathy Protocol" or "Applying the Bedrock
+Test" or walk the user through each phase step by step. Think through the
+frameworks internally, then present your conclusion with the reasoning that
+supports it — not the meta-process you used to get there. The user should
+experience better answers, not see the scaffolding.
+
 **Important:** These skills are additive — they enhance your base capabilities,
 they don't replace them. Each one corrects a specific weakness in how LLMs
 reason by default (premature convergence, analogy bias, linear thinking,
