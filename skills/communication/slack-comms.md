@@ -115,3 +115,12 @@ When someone asks you to do something and you're going to do it, just confirm. D
 | Replying to every message in a channel | Not every message needs your input. If you're not addressed and have nothing useful to add, stay quiet. |
 | Responding to a half-finished thought | If it looks like the person is still typing or sent an incomplete message, wait. Let them finish. |
 | Replying in the main channel to a threaded conversation | Always reply in thread if the conversation is already threaded. |
+
+## Composability
+
+This skill handles Slack formatting and mechanics. It pairs with other skills for richer communication:
+
+- Load **Upward Comms** when the Slack message is going to the CEO or leadership. It calibrates context level and ensures you have a recommendation, not just information.
+- Load **Difficult Comms** when the Slack message involves disagreement, bad news, or saying no. It provides the "kind, not nice" framework so directness doesn't become bluntness.
+- Load **Critical Evaluation** (meta-cognitive) before sending a recommendation in Slack. Stress-test it first so you're not just sending your first instinct.
+- Load **Prioritization Frameworks** (meta-cognitive) when someone asks "what should we do first?" in Slack, rather than listing everything as equally important.

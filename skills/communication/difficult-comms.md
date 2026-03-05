@@ -105,3 +105,12 @@ You'll usually add back 1-2 out of the 8 you removed.
 | Using passive voice to avoid ownership | "A mistake was made" → "I made a mistake" or "We missed this." |
 | Deferring to avoid discomfort | "We should probably discuss this later" means you don't want to say it. Say it now. |
 | Ending difficult messages with "Does that make sense?" | It sounds like you're checking if they understood, not inviting feedback. Try "What do you think?" or nothing at all. |
+
+## Composability
+
+This skill handles the emotional and structural challenge of difficult messages. It pairs with other skills:
+
+- Load **Upward Comms** when the difficult conversation is with the CEO. It calibrates context level and provides the recommendation format so your pushback is structured, not just blunt.
+- Load **Slack Comms** when delivering the difficult message in Slack. It handles formatting, threading, and length so the message lands cleanly.
+- Load **Critical Evaluation** (meta-cognitive) before a difficult conversation to verify your position is actually sound. Steel-man the other side first so your disagreement is grounded, not reactive.
+- Load **Systems Thinking** (meta-cognitive) when the difficult message involves a systemic problem. "And Then What?" tracing helps you anticipate how the other person will respond to your message.

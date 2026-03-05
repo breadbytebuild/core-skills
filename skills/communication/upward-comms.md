@@ -112,3 +112,12 @@ After writing a message to the CEO, check:
 | Softening a recommendation so much it disappears | If you think X, say "I think X." Don't say "it might be worth considering X." |
 | Waiting to communicate bad news until you have a fix | Flag it now with what you know. "Issue: [X]. Investigating. Will update by [time]." |
 | "Per our earlier conversation..." | Just state the thing. They remember. |
+
+## Composability
+
+This skill handles the content and calibration of leadership communication. It pairs with other skills:
+
+- Load **Slack Comms** alongside this for Slack-specific formatting (threading, scannability, message length). Upward Comms handles *what* to say; Slack Comms handles *how it looks* in Slack.
+- Load **Difficult Comms** when you need to push back, deliver bad news, or say no to the CEO. Upward Comms has a pushback pattern, but Difficult Comms goes deeper on the "kind, not nice" framework.
+- Load **Critical Evaluation** (meta-cognitive) before sending a recommendation. The Steel Man and Pre-Mortem tests catch weaknesses before the CEO does.
+- Load **First Principles** (meta-cognitive) when the CEO's request feels like it's based on convention rather than fundamentals. Strip the assumption before proposing a direction.
