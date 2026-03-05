@@ -62,6 +62,23 @@ Image prompts are creative briefs with five dimensions. Cover each one intention
 - Framing: wide shot, close-up, centered subject, rule of thirds, negative space on the left for text overlay
 - Depth: shallow depth of field (blurred background), flat (everything in focus)
 
+### Style Vocabulary
+
+The style dimension has the most impact on the final feel. Know what these terms actually produce:
+
+| Style | What It Looks Like | Best For |
+|-------|-------------------|----------|
+| **Flat vector** | Clean shapes, no shadows, bold colors, Duolingo/Notion feel | SaaS product illustrations, onboarding, empty states |
+| **Isometric** | 3D-ish perspective without vanishing points, technical and clean | Dashboards, architecture diagrams, feature explanations |
+| **Editorial illustration** | Textured, artistic, magazine-quality, often conceptual | Blog headers, thought leadership, abstract concepts |
+| **Photorealistic** | Looks like a photograph, detailed, lifelike | Product shots, lifestyle marketing, headshots (use Flux) |
+| **Hand-drawn / sketch** | Imperfect lines, organic feel, approachable | Early-stage products, personal brands, whimsical content |
+| **3D render** | Glossy, dimensional, modern, Apple-esque | Hero sections, premium product marketing, app icons |
+| **Line art** | Simple outlines, minimal, clean | Icons, diagrams, technical documentation |
+| **Paper cutout / collage** | Layered, textured, crafty, unique | Creative brands, editorial, standout social content |
+
+Don't pick randomly. Match the style to the product's personality and where the image will be used. A SaaS dashboard empty state wants flat vector. A blog post about AI ethics wants editorial illustration. A product landing page hero wants 3D render or photorealistic.
+
 ### Don't Over-Specify
 
 Cover the dimensions you care about. Leave room for the model's interpretation on things you don't care about. Over-constrained prompts produce stiff, lifeless images. Under-constrained prompts produce generic ones. Hit the middle.
@@ -121,6 +138,28 @@ The mood is [mood adjectives]. Use [color palette/scheme].
 [Composition notes if needed: perspective, framing, where to leave space.]
 ```
 
+## Image Types: How Prompting Changes
+
+Different image types need different prompt approaches. Don't use the same structure for everything.
+
+**Illustrations (product, marketing, conceptual)**
+Your most common use case. Use the five dimensions and the Nano Bana Pro template. Style and mood are the most important dimensions. Purpose-awareness matters: "for a SaaS onboarding screen" produces different output than "for a blog header."
+
+**Photos (product shots, lifestyle, headshots)**
+Switch to Flux for photorealism. Prompt structure shifts to camera language: lens ("85mm portrait lens"), lighting setup ("soft window light from the left"), depth of field ("shallow, subject sharp, background bokeh"). Include physical details: skin texture, fabric, environment materials. Photos need more specificity than illustrations because the model has to simulate real physics.
+
+**Icons and small assets**
+Much simpler prompts. Specify: the object, the style (line, filled, glyph), the size context ("for a 24px UI icon"), and the color (single color or two-tone). Keep it minimal. Icons that try to communicate too much become unreadable at small sizes. "A simple line icon of an envelope, single stroke weight, #1F2937 on transparent background."
+
+**Thumbnails and social cards**
+Text rendering matters here. Use Nano Bana Pro. Specify: the text content exactly, the text placement (top-center, overlaid on image), the background style, and the aspect ratio (16:9 for YouTube, 1:1 for Instagram, 1.91:1 for Twitter/OG). Leave space for text if the text isn't part of the generation.
+
+**UGC-style / authentic-looking content**
+The goal is intentional imperfection. Avoid words like "professional," "polished," or "clean." Instead: "casual iPhone photo," "slightly off-center framing," "natural lighting, not studio," "candid moment, not posed." The model's default is too polished for UGC. You have to deliberately rough it up.
+
+**Character design / mascots**
+Start with a detailed character description in one generation. Once you have a character you like, save it as a reference image and use Nano Bana Pro's character consistency feature for all future generations. Define: body proportions, clothing, color palette, expression range, and any accessories. Consistency is everything for mascots.
+
 ## Other Models: When to Reach for Something Else
 
 Nano Bana Pro is your default. But it isn't the best at everything.
@@ -133,7 +172,17 @@ Nano Bana Pro is your default. But it isn't the best at everything.
 | Specific fine-tuned style (anime, pixel art, brand-specific) | **SDXL + LoRA** | Massive ecosystem of custom models, cheapest per image |
 | Text rendering, infographics, design assets | **Nano Bana Pro** | Stay here. Best in class for these. |
 
-When choosing: try your primary model first. Only switch when you hit a limitation that a different model specifically solves. Don't model-hop based on vibes.
+### Selection Edge Cases
+
+**When someone asks you to use a specific model:** Use it. But if you know a different model would produce significantly better results for this specific task, say so. "I can do this with SDXL, but Nano Bana Pro would handle the text rendering much better. Want me to try that instead?" Suggest, don't override.
+
+**When you don't have access to the ideal model:** Use what you have and be transparent. "Flux would be best for this photorealistic shot, but I don't have access. I'll use Nano Bana Pro and aim for a slightly more illustrated feel. If photorealism is critical, we may need to use Flux directly."
+
+**When a new model drops:** Don't switch your whole workflow on launch day. Test it on one representative task from your current work. Compare the output against your current default. If it's meaningfully better, switch. If it's different but not better, stick with what works.
+
+**When you need to combine models:** Some projects need different models for different assets: Flux for the hero photo, Nano Bana Pro for the illustrations, SDXL with a LoRA for the icons. This is fine. Lock the style description per asset type and keep each model consistent within its category.
+
+**Default behavior:** Try Nano Bana Pro first. Only switch when you hit a limitation that a different model specifically solves. Don't model-hop based on vibes.
 
 ## Style Consistency Across a Project
 
@@ -166,6 +215,20 @@ The Prompting Fundamentals iteration loop applied to visual output.
 7. **Lock the prompt** when it works. Save it as the template for the series.
 
 **Know when to stop.** If iteration 4 and iteration 5 look equally good but different, you're past diminishing returns. Pick the better one and move on.
+
+## What Makes an Image Striking
+
+A correct image is not a great image. The skill so far teaches you to produce solid, professional output. This section teaches you to produce output that makes someone stop scrolling.
+
+**Unexpected color.** The model defaults to safe palettes (blue gradients, muted pastels). A striking image often uses one bold, unexpected color choice: a vivid coral accent on a dark background, a monochrome illustration with a single gold element, deep emerald where you'd expect blue. Don't be afraid to prompt outside the safe palette.
+
+**Bold composition.** The model defaults to centered subjects with even framing. Striking images use asymmetry, dramatic negative space, unusual cropping, or extreme perspective. "Subject in the bottom-right third with the entire left side as negative space" is more interesting than "centered subject."
+
+**Emotional specificity.** "Professional and friendly" is safe. "The quiet confidence of a founder who just closed their first deal" is specific enough to produce something with actual feeling. The more emotionally specific the mood, the more the image resonates. Don't prompt for generic moods. Prompt for moments.
+
+**Contrast and tension.** The most memorable images have some form of contrast: light against dark, organic against geometric, tiny subject against vast space, detailed foreground against blurred background. Prompt for the contrast, not just the subject.
+
+**The anti-safe-default rule:** After writing your prompt, ask: "Is this the image every AI would produce for this brief?" If yes, you're at the statistical center. Push one dimension toward an edge: bolder color, more dramatic composition, more specific emotion, more unexpected style combination. That's where "wow" lives.
 
 ## Anti-Patterns
 
