@@ -84,6 +84,8 @@ Does it actually work? Not "does the code look right" but "if I use this, does i
 
 The question isn't "could this work?" It's "did I verify that it works?"
 
+**If you can't test it yourself** (no browser access, no preview, no way to run the code), say so explicitly. Don't silently assume it works. Flag what you couldn't verify: "I haven't been able to visually verify this. Please check: does the loading skeleton match the final layout? Does the mobile layout stack correctly? Does the empty state show the CTA?" Transparent uncertainty is better than false confidence.
+
 ### Lens 3: Design and UX
 
 Does it look right and feel right?
