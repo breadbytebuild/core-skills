@@ -13,7 +13,7 @@ Load when: updating PMs, designers, or founders on progress, presenting tradeoff
 ## Phase 2: Design (how it should look and feel)
 
 **UI/UX Design Sense** → `skills/product-building/ui-ux-design.md`
-Load when: designing a screen, choosing layouts, making spacing/typography/color decisions, or anything where the visual quality of the software matters. *Coming soon.*
+Load when: designing a screen, choosing layouts, making spacing/typography/color decisions, or anything where the visual quality of the software matters. Load this before building any UI.
 
 **Frontend Craft** → `skills/product-building/frontend-craft.md`
 Load when: building components, handling loading/error/empty states, implementing animations or transitions, or making responsive design decisions. *Coming soon.*
