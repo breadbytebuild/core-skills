@@ -148,7 +148,7 @@ When building without human oversight, the bar is higher because there's no safe
 
 **The honest grade test.** After your polish pass, give yourself a letter grade. If you can't honestly say A-, do another pass. If you're at A- or above after the first pass, ship it.
 
-**Don't lie to yourself.** The temptation is to say "A-" to avoid another cycle. Ask instead: "If Koby looked at this right now, what's the first thing he'd flag?" If you can name something, fix it. If you genuinely can't think of anything obvious, you're at A-.
+**Don't lie to yourself.** The temptation is to say "A-" to avoid another cycle. Ask instead: "If the stakeholder looked at this right now, what's the first thing he'd flag?" If you can name something, fix it. If you genuinely can't think of anything obvious, you're at A-.
 
 ## What Polish Catches (Before/After)
 
